@@ -1,0 +1,15 @@
+web:
+  build: .
+  command: python -u app.py
+  ports:
+    - "5000:5000"
+  volumes:
+    - .:/identity
+  links:
+    - db
+  environment:
+    - BACKEND_HOST=192.168.231.142
+    - BACKEND_STORE=20151
+    - SESSION_SECRET="${SESSION_SECRET}"
+db:
+  image: mongo

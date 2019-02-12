@@ -1,0 +1,24 @@
+<html>
+<body>
+
+{% if identity %}
+<h1>delete guest identity</h1>
+<form action="/guestidentity" method="POST">
+	<input type="hidden" name="delete" value="delete"></input>
+	<input type="submit"></input>
+</form>
+{% else %}
+<h1>create guest identity</h1>
+<form action="/guestidentity" method="POST">
+  <input type="submit"></input>
+</form>
+{% endif %}
+
+{% if identity %}
+<h2> userId = {{ identity.userId }} </h2>
+<p> WCTrustedToken = {{ identity.WCTrustedToken }} <p>
+<p> WCToken = {{ identity.WCToken }} <p>
+{% endif %}
+</body>
+
+</html>
